@@ -35,17 +35,19 @@ $font-cursive: 'Playball', cursive;
 $font-sans: 'Nunito Sans', sans-serif;
 .font-sans { font-family: $font-sans }
 
-$blue-dark: #031D44;
-$blue-light: #4D7EA8;
-$red: #890E05;
+$primary-dark: #031D44;
+$primary-medium: #4D7EA8;
+$primary-light: #F4E8C1;
+$primary-cta: #890E05;
 $grey-dark: #727372;
 $grey-light: #B2B2B2;
-$creme: #F4E8C1;
-$creme-background: #F4F0E3;
-$text-shadow: 1px 2px 2px $blue-light;
+
+$primary-light-background: #F4F0E3;
+.background-primary-light { background-color: $primary-light }
+
+$text-shadow: 1px 2px 2px $primary-medium;
 $transparent-white: rgba(255, 255, 255, 0.5);
 $transparent-white-overlay: rgba(255, 255, 255, 0.75);
-.background-creme { background-color: $creme }
 
 .border-grey { border-color: $grey-dark }
 
@@ -60,20 +62,20 @@ Basics
 ==============================================
 */
 
-body { font-family: $font-serif; color: $blue-dark; max-width: 100%; overflow-x: hidden;}
+body { font-family: $font-serif; color: $primary-dark; max-width: 100%; overflow-x: hidden;}
 label { text-transform: capitalize; }
 h1 { font-family: $font-decorative; text-shadow: $text-shadow; font-size: 50px; }
 @media screen and (max-width: 768px) { h1 { font-size: 30px }}
-.linkish { cursor: pointer; text-decoration: underline; color: $red; }
+.linkish { cursor: pointer; text-decoration: underline; color: $primary-cta; }
 a { color: $grey-dark }
-hr { border-color: $blue-dark }
+hr { border-color: $primary-dark }
 img { width: 100% }
 .bottom-buffer { height: 70px }
 .buffer { height: 50px }
 td { padding: 5px}
-.blue-stripe { background-color: $blue-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
-.blue-stripe * { color: white !important; }
-@media screen and (max-width: 992px) and (min-width: 768px) { .blue-stripe { font-size: 17px }}
+.primary-stripe { background-color: $primary-dark; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); color: white; position: relative; padding: 25px 0 25px 0; font-size: 20px}
+.primary-stripe * { color: white !important; }
+@media screen and (max-width: 992px) and (min-width: 768px) { .primary-stripe { font-size: 17px }}
 .header-row { text-align: center; }
 p { font-family: $font-sans }
 
@@ -116,11 +118,11 @@ p { font-family: $font-sans }
 
 .card h1 {
 	font-size: 30px;
-	color: $blue-dark !important;
+	color: $primary-dark !important;
 }
 
 .card h4, p {
-	color: $blue-dark !important;
+	color: $primary-dark !important;
 }
 
 .card.full-width h1 {
@@ -159,7 +161,7 @@ p { font-family: $font-sans }
 .btn, button {
 	border-radius: 1px;
 	font-size: 20px;
-	background-color: $red;
+	background-color: $primary-cta;
 	color: white;
 	font-weight: 900;
 	text-transform: capitalize;
@@ -176,7 +178,7 @@ p { font-family: $font-sans }
 }
 
 .btn:hover, .btn:focus, .btn:active, button:hover, button:focus, button:active {
-	background-color: $blue-dark;
+	background-color: $primary-dark;
 	color: white;
     -webkit-transform: scale(1.1);
   	transform: scale(1.1);
@@ -190,14 +192,14 @@ p { font-family: $font-sans }
 .alert {
 		position: relative;
     background: white;
-    color: $blue-dark;
+    color: $primary-dark;
 		border-radius: 0;
 		margin: 0;
 		z-index: 30;
 }
 
-.alert-success { border-color: $red; }
-.alert-info { border-color: $blue-dark; }
+.alert-success { border-color: $primary-cta; }
+.alert-info { border-color: $primary-dark; }
 .alert-warning, .alert-danger { border-color: #F08080; }
 .alert button { margin-top: -3px; }
 
@@ -276,7 +278,7 @@ Main Nav
 
 #main-nav.navbar-default .navbar-brand {
     font-family: $font-decorative;
-    color: $creme;
+    color: $primary-light;
     font-size: 25px;
     margin-top: 5px;
 		z-index: 20;
@@ -285,7 +287,7 @@ Main Nav
 #main-nav.navbar-default {
     font-size: 16px;
 		font-family: $font-serif;
-    background-color: $blue-dark;
+    background-color: $primary-dark;
     border: none;
 		margin-bottom: 0px;
 		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -302,18 +304,18 @@ Main Nav
     color: rgba(85, 85, 85, 1);
 }
 #main-nav.navbar-default .navbar-toggle {
-    border-color: $creme;
+    border-color: $primary-light;
 }
 #main-nav.navbar-default .navbar-toggle:hover,
 #main-nav.navbar-default .navbar-toggle:focus {
-    background-color: $creme;
+    background-color: $primary-light;
 }
 #main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: $creme;
+    background-color: $primary-light;
 }
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: $blue-dark;
+    background-color: $primary-dark;
 }
 
 /* Underline From Center */
@@ -333,7 +335,7 @@ Main Nav
   left: 50%;
   right: 50%;
   bottom: 0;
-  background: $blue-light;
+  background: $primary-medium;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -445,8 +447,8 @@ Footer
 */
 
 footer {
-	background-color: $blue-dark;
-	color: $creme;
+	background-color: $primary-dark;
+	color: $primary-light;
 	padding: 30px 0 0 0;
 }
 
@@ -468,7 +470,7 @@ footer .icon {
 }
 
 footer .icon:hover {
-	color: $blue-light;
+	color: $primary-medium;
 }
 
 .social-row {
@@ -581,7 +583,7 @@ Pages
 /* listings */
 
 .fancy-border {
-	border: solid 1px $blue-dark;
+	border: solid 1px $primary-dark;
 	background-color: white;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	margin-bottom: 40px;
@@ -611,7 +613,7 @@ Pages
 }
 
 .property-details a {
-	color: $blue-dark;
+	color: $primary-dark;
 }
 
 .property-details:hover {
@@ -620,7 +622,7 @@ Pages
 
 .property-details a:hover {
 	text-decoration: none;
-	color: $blue-dark;
+	color: $primary-dark;
 }
 
 .property-details .ion {

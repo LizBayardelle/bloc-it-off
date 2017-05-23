@@ -11,49 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506211042) do
-
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title"
-    t.string   "teaser"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "slug"
-  end
-
-  add_index "blogs", ["slug"], name: "index_blogs_on_slug", unique: true
-  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
-
-  create_table "comments", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "user_id"
-    t.integer  "blog_id"
-    t.boolean  "approved",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
-
-  create_table "contacts", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "preferred_contact"
-    t.string   "message"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.string   "purpose"
-    t.boolean  "archived",          default: false
-  end
+ActiveRecord::Schema.define(version: 20170513052930) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -67,25 +25,6 @@ ActiveRecord::Schema.define(version: 20170506211042) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-
-  create_table "listings", force: :cascade do |t|
-    t.string   "zpid"
-    t.string   "status"
-    t.string   "location"
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
-    t.string   "address"
-    t.string   "citystatezip"
-    t.text     "notes"
-    t.string   "slug"
-    t.boolean  "featured",                   default: false
-    t.string   "default_image_file_name"
-    t.string   "default_image_content_type"
-    t.integer  "default_image_file_size"
-    t.datetime "default_image_updated_at"
-  end
-
-  add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -131,12 +70,6 @@ ActiveRecord::Schema.define(version: 20170506211042) do
     t.string   "last_name"
     t.string   "phone"
     t.boolean  "admin",                  default: false
-    t.boolean  "buyer",                  default: false
-    t.boolean  "seller",                 default: false
-    t.boolean  "blog_emails",            default: false
-    t.string   "preferred_contact"
-    t.boolean  "status_confirmed",       default: false
-    t.boolean  "archived",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

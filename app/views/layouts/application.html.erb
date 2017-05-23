@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OC Realtor</title>
+  <title>Project Title</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -22,18 +22,13 @@
   <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container-fluid">
           <div class="navbar-header">
-          	<%= link_to "OC Realtor", root_path, class:"navbar-brand" %>
+          	<%= link_to "Project Title", root_path, class:"navbar-brand" %>
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
               </button>
           </div>
           <div class="collapse navbar-collapse navbar-menubuilder">
               <ul class="nav navbar-nav navbar-right">
                   <li><%= link_to "Home", root_path, class: "center-ul-hover" %></li>
-                  <li><%= link_to "Blog", blogs_path, class: "center-ul-hover", data: { turbolinks: false } %></li>
-                  <% if current_user && (current_user.admin || ( current_user.buyer && current_user.status_confirmed )) %>
-                    <li><%= link_to "Listings", listings_path, class: "center-ul-hover" %></li>
-                  <% end %>
-                  <li><%= link_to "Contact Me", new_contact_path, class: "center-ul-hover" %></li>
                   <% if current_user %>
                   	<li><%= link_to "Dashboard", user_path(current_user), class: "center-ul-hover" %></li>
                   <% else %>
@@ -70,26 +65,21 @@
   <%= yield %>
 </div> <!-- page minus footer -->
 
-<footer style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)">
+<footer>
   <div class="container text-center">
-    <h1>OC Realtor</h1>
-    <h2>Helping you find the right home.</h2>
+    <h1>Project Title</h1>
+    <h2>Witty tag line goes here.</h2>
     <div class="row social-row">
       <a href=""><i class="icon ion-social-facebook" target="_blank"></i></a>
-      <a href="https://www.linkedin.com/in/anthonybayardelle/" target="_blank"><i class="icon ion-social-linkedin"></i></a>
-      <a href="https://twitter.com/OCCaliRealtor" target="_blank"><i class="icon ion-social-twitter"></i></a>
-      <a href="https://plus.google.com/u/0/117197625945652719096" target="_blank"><i class="icon ion-social-googleplus"></i></a>
-      <a href="https://www.youtube.com/channel/UCmvIhCtIiOOOemG_d6dC3vg" target="_blank"><i class="icon ion-social-youtube"></i></a>
-      <a href="https://www.pinterest.com/orangecountyrealtor/" target="_blank"><i class="icon ion-social-pinterest"></i></a>
+      <a href="" target="_blank"><i class="icon ion-social-linkedin"></i></a>
+      <a href="" target="_blank"><i class="icon ion-social-twitter"></i></a>
+      <a href="" target="_blank"><i class="icon ion-social-googleplus"></i></a>
+      <a href="" target="_blank"><i class="icon ion-social-youtube"></i></a>
+      <a href="" target="_blank"><i class="icon ion-social-pinterest"></i></a>
     </div> <!-- social row -->
     <p>Website by Linchpin Industries, LLC</p>
   </div> <!-- container -->
 </footer>
-<div class="row text-center" style="padding-bottom: 30px; background-color: none">
-  <div class="container">
-    <%= image_tag "rockstone_realty_logo.png", alt: "Rockstone Realty", style: "max-width: 486px; padding-top: 30px" %>
-  </div>
-</div>
 
 </body>
 </html>
