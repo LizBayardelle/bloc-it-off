@@ -37,6 +37,5 @@ gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
 gem 'aws-sdk', '~> 2.3'
 gem 'rename'
-gem 'rubillow'
-gem 'rillow', github: "hiattp/rillow"
 gem 'httparty'
+gem 'active_model_serializers'
