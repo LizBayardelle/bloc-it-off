@@ -22,5 +22,4 @@ Rails.application.routes.draw do
   # post "users/:id/subscribe_to_blog" => "users#subscribe_to_blog", as: "subscribe_to_blog"
   # post "comment/:id/approve" => "comments#approve_comment", as: "approve_comment"
   # post "comment/:id/unapprove" => "comments#unapprove_comment", as: "unapprove_comment"
-
 end
