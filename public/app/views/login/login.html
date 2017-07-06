@@ -1,0 +1,24 @@
+<div class="responsive-hero-div">
+  <img src="app/assets/images/corkboard.jpg" alt="Corkboard" class="responsive-hero-img">
+</div> <!-- responsive-hero-div -->
+
+<div class="centered-box">
+  <h2 class="font-cursive text-center">Log In</h2>
+  <form ng-submit="$ctrl.handleLoginBtnClick()" role="form" ng-init="$ctrl.loginForm = {}">
+    <div class="form-group">
+      <label>email</label>
+      <input type="email" name="email" ng-model="$ctrl.loginForm.email" required="required" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label>password</label>
+      <input type="password" name="password" ng-model="$ctrl.loginForm.password" required="required" class="form-control"/>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
+    </div>
+  </form>
+
+  <a ui-sref="registration"><h4 class="text-center bold">New to BlocItOff?<br />Create an account here!</h4></a>
+</div> <!-- centered box -->
