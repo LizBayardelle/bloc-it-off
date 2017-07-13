@@ -1,5 +1,5 @@
 (function() {
-     function config($locationProvider, $stateProvider, $urlRouterProvider, $authProvider) {
+     function config($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, UserProvider) {
         //  $locationProvider
         //      .html5Mode({
         //          enabled: true,
@@ -7,14 +7,23 @@
         //       });
         $authProvider
           .configure({
-      			apiUrl: 'http://localhost:3000/api'
+      			apiUrl: 'http://localhost:3000/api',
+            handleLoginResponse: function(response) {
+              UserProvider.$set(response.data);
+              console.log(UserProvider.$get());
+            }
       		});
 
          $stateProvider
              .state('dashboard', {
                url: '/dashboard',
                controller: 'DashboardCtrl as $ctrl',
-               templateUrl: 'app/views/dashboard/dashboard.html'
+               templateUrl: 'app/views/dashboard/dashboard.html',
+               resolve: {
+                  auth: function($auth) {
+                    return $auth.validateUser();
+                  }
+                }
              })
              .state('registration', {
                  url: '/',
@@ -42,10 +51,19 @@
                  templateUrl: 'app/views/lists/lists.html'
              });
 
+
+
         $urlRouterProvider.otherwise('/');
+     }
+
+     function run($transitions) {
+      //  $transitions.onError({ to: '**' }, function(trans) {
+      //    trans.router.stateService.go('login');
+      //  });
      }
 
      angular
          .module('myApp', ['ui.router', 'ng-token-auth', 'ngToast'])
-         .config(config);
+         .config(config)
+         .run(run);
  })();

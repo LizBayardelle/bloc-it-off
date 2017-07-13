@@ -1,23 +1,24 @@
 (function() {
-     function DashboardCtrl($auth, $state, ngToast) {
+     function DashboardCtrl($auth, $state, ngToast, $rootScope, User) {
         var $ctrl = this;
 
         $ctrl.handleSignOutBtnClick = handleSignOutBtnClick;
 
+        getUser();
+
+        function getUser() {
+          $ctrl.currentUser = User;
+        }
+
         function handleSignOutBtnClick() {
           $auth.signOut()
             .then(function(resp) {
-              console.log("Helloooos?");
-              ngToast.create("Behold!  I made toast!");
-              console.log("Post Tost");
-              // root scope probably isn't right
               $rootScope.$on('auth:logout-success', function(ev) {
-                  alert('goodbye');
+                  ngToast.create("You have been successfully signed out!");
               });
               $state.go('login');
             })
             .catch(function(resp) {
-              // root scope probably isn't right
               $rootScope.$on('auth:logout-error', function(ev, reason) {
                   alert('logout failed because ' + reason.errors[0]);
               });
