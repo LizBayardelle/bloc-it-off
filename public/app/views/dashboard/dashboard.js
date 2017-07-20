@@ -1,5 +1,5 @@
 (function() {
-     function DashboardCtrl($auth, $state, ngToast, $rootScope, User) {
+     function DashboardCtrl($auth, $state, ngToast, $rootScope, user) {
         var $ctrl = this;
 
         $ctrl.handleSignOutBtnClick = handleSignOutBtnClick;
@@ -7,7 +7,8 @@
         getUser();
 
         function getUser() {
-          $ctrl.currentUser = User;
+          console.log(user)
+          $ctrl.currentUser = user;
         }
 
         function handleSignOutBtnClick() {

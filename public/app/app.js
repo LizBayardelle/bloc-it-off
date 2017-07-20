@@ -1,5 +1,5 @@
 (function() {
-     function config($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, UserProvider) {
+     function config($locationProvider, $stateProvider, $urlRouterProvider, $authProvider, userProvider) {
         //  $locationProvider
         //      .html5Mode({
         //          enabled: true,
@@ -9,8 +9,8 @@
           .configure({
       			apiUrl: 'http://localhost:3000/api',
             handleLoginResponse: function(response) {
-              UserProvider.$set(response.data);
-              console.log(UserProvider.$get());
+              userProvider.$set(response.data);
+              console.log(userProvider.$get());
             }
       		});
 

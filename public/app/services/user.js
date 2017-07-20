@@ -1,26 +1,28 @@
 function User() {
     var _user = null;
 
-    this.getUserFromServer = function(user) {
-        //  User.get(userId).$promise.then(user) { _user = user; };
-    }
+    // this.getUserFromServer = function(user) {
+    //     //  User.get(userId).$promise.then(user) { _user = user; };
+    // }
 
-    this.isAuthenticated = function () {
-        return user !== null;
-    }
+    // this.isAuthenticated = function () {
+    //     return user !== null;
+    // }
+    //
+    // this.logoff = function ()  {
+    //     user = null;
+    // }
 
-    this.logoff = function ()  {
-        user = null;
-    }
+    return {
+      $get: function () {
+        return _user;
+      },
 
-    this.$get = function () {
-      return _user;
-    }
-
-    this.$set = function (user) {
-      _user = user;
+      $set: function (user) {
+        _user = user;
+      }
     }
 }
 angular
   .module('myApp')
-  .provider('User', User);
+  .provider('user', User);
