@@ -1,21 +1,33 @@
 (function() {
-     function AccountCtrl($auth, $state, ngToast) {
+     function AccountCtrl($auth, $state, ngToast, $scope, user) {
         var $ctrl = this;
 
-        $ctrl.handleUpdateAccountBtnClick = handleUpdateAccountBtnClick;
+        $ctrl.updateAccount = updateAccount;
+        $ctrl.updateAccountForm = user;
+        $ctrl.changePasswordForm = {};
 
-        function handleUpdateAccountBtnClick() {
-          $auth.updateAccount($scope.updateAccountForm)
+        function updateAccount(form) {
+
+          $auth.updateAccount(form)
             .then(function(resp) {
               // handle success response
               $scope.$on('auth:account-update-success', function(ev) {
-                alert("Your account has been successfully updated!");
+                ngToast.create("Your account has been successfully updated!");
               });
             })
             .catch(function(resp) {
               // handle error response
+              // needs lodash
+              // var errors = _.map(resp.errors, function(error) {
+              //   return _.reduce(error, function(final, errorText) {
+              //     final += errorText;
+              //     return final;
+              //   }, '');
+              // })
+
+              ngToast.create("Registration failed: " + resp.statusText);
               $scope.$on('auth:account-update-error', function(ev, reason) {
-                alert("Registration failed: " + reason.errors[0]);
+                ngToast.create("Registration failed: " + reason.errors[0]);
               });
             });
         }

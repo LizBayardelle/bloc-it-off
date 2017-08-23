@@ -2,9 +2,21 @@
   <img src="app/assets/images/corkboard.jpg" alt="Corkboard" class="responsive-hero-img">
 
   <div class="overlap-responsive-image">
-    <div class="text-center">
-      <h1>Lists</h1>
-    </div> <!-- header -->
+      <h1 class="text-center">My Lists</h1>
+
+      <div class="card col-xs-6 col-xs-push-3 col-md-4 col-md-push-4" style="margin-bottom: 50px">
+        <div class="form-group">
+          <label>Create a New List</lable>
+          <input ng-model="$ctrl.listName" class="form-control" />
+        </div> <!-- form group -->
+        <button ng-click="$ctrl.createList()">Create List</button>
+      </div>
+      
+      <div class="card col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
+        <ul ng-repeat="list in $ctrl.lists">
+            <h2><li ui-sref="listView({id: list.id})">{{ list.attributes.name }}</li></h2>
+        </ul> <!-- ng repeat -->
+    </div> <!-- card -->
 
   </div> <!-- overlap-responsive-image -->
 </div> <!-- responsive-hero-div -->

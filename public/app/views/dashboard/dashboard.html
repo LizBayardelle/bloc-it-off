@@ -5,6 +5,8 @@
     <div class="text-center">
       <h1>Dashboard</h1>
       {{$ctrl.currentUser}}
+      <h3>{{ $ctrl.currentUser.name }}</h3>
+      <p>{{ $ctrl.currentUser.email }}</p>
       <button class="btn btn-primary btn-lg" ng-click='$ctrl.handleSignOutBtnClick()'>Sign out</button>
     </div> <!-- header -->
 

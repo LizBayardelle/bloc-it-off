@@ -11,6 +11,14 @@
             handleLoginResponse: function(response) {
               userProvider.$set(response.data);
               console.log(userProvider.$get());
+            },
+            handleAccountUpdateResponse: function(response) {
+              userProvider.$set(response.data);
+              console.log(userProvider.$get());
+            },
+            handleTokenValidationResponse: function(response) {
+              userProvider.$set(response.data);
+              console.log(userProvider.$get());
             }
       		});
 
@@ -40,15 +48,15 @@
                  controller: 'AccountCtrl as $ctrl',
                  templateUrl: 'app/views/account/account.html'
              })
-             .state('items', {
-                 url: '/items',
-                 controller: 'ItemsCtrl as $ctrl',
-                 templateUrl: 'app/views/items/items.html'
-             })
              .state('lists', {
                  url: '/lists',
                  controller: 'ListsCtrl as $ctrl',
                  templateUrl: 'app/views/lists/lists.html'
+             })
+             .state('listView', {
+                 url: '/lists/:id',
+                 controller: 'ListCtrl as $ctrl',
+                 templateUrl: 'app/views/list/list.html'
              });
 
 

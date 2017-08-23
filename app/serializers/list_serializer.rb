@@ -1,5 +1,5 @@
 class ListSerializer < ActiveModel::Serializer
-  attributes :id, :name, :user_id, :private
+  attributes :id, :name, :user_id, :private, :items
 
   def name
     object.name
@@ -15,5 +15,9 @@ class ListSerializer < ActiveModel::Serializer
 
   def created_at
     object.created_at.strftime('%B %d, %Y')
+  end
+
+  def items
+    Item.where(list_id: object.id)
   end
 end

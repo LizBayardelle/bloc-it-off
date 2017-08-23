@@ -1,0 +1,14 @@
+<div class="responsive-hero-div">
+  <img src="app/assets/images/corkboard.jpg" alt="Corkboard" class="responsive-hero-img">
+
+  <div class="overlap-responsive-image">
+
+      <h1 class="text-center">{{ $ctrl.list.attributes.name }}</h1>
+      <div class="card col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
+        <ul ng-repeat="item in $ctrl.list.attributes.items">
+            <li><p>{{ item.content }}</p></li>
+        </ul> <!-- ng repeat -->
+    </div> <!-- card -->
+
+  </div> <!-- overlap-responsive-image -->
+</div> <!-- responsive-hero-div -->

@@ -1,28 +1,24 @@
 (function() {
-     function ListsCtrl($auth, $state, ngToast) {
+     function ListsCtrl($auth, $state, ngToast, List) {
         var $ctrl = this;
 
-        $ctrl.handleSignOutBtnClick = handleSignOutBtnClick;
+        $ctrl.createList = createList
 
-        function handleSignOutBtnClick() {
-          $auth.signOut()
-            .then(function(resp) {
-              console.log("Helloooos?");
-              ngToast.create("Behold!  I made toast!");
-              console.log("Post Tost");
-              // root scope probably isn't right
-              $rootScope.$on('auth:logout-success', function(ev) {
-                  alert('goodbye');
-              });
-              $state.go('login');
-            })
-            .catch(function(resp) {
-              // root scope probably isn't right
-              $rootScope.$on('auth:logout-error', function(ev, reason) {
-                  alert('logout failed because ' + reason.errors[0]);
-              });
+        onInit();
+
+        function onInit() {
+            List.get().then(function(data) {
+              $ctrl.lists = data;
+              console.log(data);
             });
         }
+
+        function createList() {
+            List.create($ctrl.listName).then(function(data) {
+              onInit();
+            });
+        }
+
      }
 
      angular

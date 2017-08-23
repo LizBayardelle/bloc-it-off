@@ -7,7 +7,7 @@
         getUser();
 
         function getUser() {
-          console.log(user)
+          console.log(user);
           $ctrl.currentUser = user;
         }
 
