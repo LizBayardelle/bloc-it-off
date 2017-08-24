@@ -3,26 +3,40 @@ function Item($http, user) {
     service.get = get;
     service.update = update;
     service.destroy = destroy;
+    service.create = create;
 
     function get(id) {
       var userId = user.id;
       // This needs some serious help
-      return $http.get('api/lists/'+id ).then(function(resp) {
+      return $http.get('api/lists/' + id ).then(function(resp) {
         return resp.data.data;
       });
     }
 
-    function update(id, itemData) {
-      // data = {name : 'foobar'}
-      // yeah, this needs help too.  How do angular urls get generated?
-      return $http.put('api/lists/' + id, {data: listData}).then(function(resp) {
+    function update(itemId, content, done) {
+      var data = {
+        done: done,
+        content: content
+      };
+
+      return $http.put('api/items/' + itemId, data).then(function(resp) {
         return resp.data;
       });
     }
 
+    function create(content, listId) {
+      var data = {
+        content: content,
+        list_id: listId
+      };
+
+      return $http.post('api/lists/' + listId + '/items', data).then(function(resp) {
+        return resp.data.data;
+      });
+    }
+
     function destroy(id) {
-      // This needs to match above...I think...
-      return $http.delete('api/lists/' + listId + '/item/' + id).then(function(resp) {
+      return $http.delete('api/items/' + id).then(function(resp) {
         return resp.data;
       });
     }

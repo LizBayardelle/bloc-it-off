@@ -1,3 +1,4 @@
+
 (function() {
      function ListsCtrl($auth, $state, ngToast, List) {
         var $ctrl = this;

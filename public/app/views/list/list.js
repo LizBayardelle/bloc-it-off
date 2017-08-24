@@ -1,15 +1,26 @@
 (function() {
-     function ListCtrl($auth, $stateParams, ngToast, List) {
+     function ListCtrl($auth, $stateParams, ngToast, List, Item) {
         var $ctrl = this;
+
+        $ctrl.createItem = createItem;
 
         onInit();
 
         function onInit() {
-          console.log('yo')
+          fetchList();
+        }
+
+        function fetchList() {
           var listId = $stateParams.id;
-            List.getOne(listId).then(function(data) {
-              $ctrl.list = data;
-              console.log(data);
+          List.getOne(listId).then(function(data) {
+            $ctrl.list = data;
+          });
+        }
+
+        function createItem() {
+          var listId = $stateParams.id;
+            Item.create($ctrl.itemName, listId).then(function(data) {
+              fetchList();
             });
         }
      }
