@@ -7,7 +7,6 @@ function Item($http, user) {
 
     function get(id) {
       var userId = user.id;
-      // This needs some serious help
       return $http.get('api/lists/' + id ).then(function(resp) {
         return resp.data.data;
       });

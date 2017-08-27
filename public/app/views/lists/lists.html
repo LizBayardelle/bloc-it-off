@@ -11,10 +11,10 @@
         </div> <!-- form group -->
         <button ng-click="$ctrl.createList()">Create List</button>
       </div>
-      
+
       <div class="card col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
         <ul ng-repeat="list in $ctrl.lists">
-            <h2><li ui-sref="listView({id: list.id})">{{ list.attributes.name }}</li></h2>
+            <h2><i class="icon ion-android-checkbox-outline-blank"></i><span ui-sref="listView({id: list.id})">{{ list.attributes.name }}</span></h2>
         </ul> <!-- ng repeat -->
     </div> <!-- card -->
 
